@@ -20,9 +20,6 @@
         :counter="counterEn ? counter : false"
         :dense="dense"
       ></v-text-field>
-      <div class="text-center">
-        <v-btn rounded color="red lighten-1" dark @click="clearText">Clear</v-btn>
-      </div>
     </v-sheet>
     <v-spacer></v-spacer>
     <br />
@@ -120,6 +117,7 @@
           <v-btn color="success" fab x-large dark @click="changeText('Z')">
             <v-img :src="require('../assets/Z.png')" max-width="60"></v-img>
           </v-btn>
+          <v-btn color="red lighten-1" fab x-large dark @click="clearText">Clear</v-btn>
         </v-center>
       </v-row>
     </v-col>
@@ -234,7 +232,9 @@ export default {
       document.getElementById("Text").value += `${val}`;
     },
     clearText() {
-      document.getElementById("Text").value = "";
+      let current_value = document.getElementById("Text").value;
+      current_value = current_value.slice(0, current_value.length - 1);
+      document.getElementById("Text").value = current_value;
     }
   },
   mounted() {
