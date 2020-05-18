@@ -1,29 +1,7 @@
 <template>
   <v-container fluid>
-    <v-sheet elevation="12" class="pa-12">
-      <v-text-field
-        id="Text"
-        v-model="model"
-        :label="label"
-        :hint="hint"
-        :placeholder="placeholder"
-        :shaped="shaped"
-        :outlined="outlined"
-        :rounded="rounded"
-        :solo="solo"
-        :single-line="singleLine"
-        :filled="filled"
-        :clearable="clearable"
-        :persistent-hint="persistentHint"
-        :loading="loading"
-        :flat="flat"
-        :counter="counterEn ? counter : false"
-        :dense="dense"
-      ></v-text-field>
-    </v-sheet>
-    <v-spacer></v-spacer>
-    <br />
-    <br />
+    <v-text-field clearable id="Text" >
+    </v-text-field>
     <v-col cols="12">
       <v-row justify="center">
         <v-btn color="success" fab x-large dark @click="changeText('A')">
@@ -207,26 +185,7 @@
 <script>
 export default {
   name: "TextArea",
-  data: () => ({
-    rules: [v => v.length <= 250 || "Max 250 characters"],
-    model: "",
-    label: false,
-    hint: false,
-    placeholder: "",
-    shaped: false,
-    outlined: false,
-    rounded: false,
-    solo: false,
-    singleLine: false,
-    filled: false,
-    clearable: false,
-    persistentHint: false,
-    loading: false,
-    flat: false,
-    counterEn: false,
-    counter: 0,
-    dense: false
-  }),
+  data: () => ({}),
   methods: {
     changeText(val) {
       document.getElementById("Text").value += `${val}`;
