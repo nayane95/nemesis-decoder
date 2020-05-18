@@ -1,6 +1,7 @@
 <template>
   <v-container fluid>
     <v-text-field clearable id="Text"></v-text-field>
+    <v-text-field clearable id="TextNEM"></v-text-field>
     <v-col cols="12" v-bind:class="{ mirror: isActive }">
       <v-row justify="center">
         <v-btn color="success" fab dark @click="changeText('A')">
@@ -184,17 +185,20 @@
 <script>
 export default {
   name: "TextArea",
-  data: () => ({
-      
-  }),
+  data: () => ({}),
   methods: {
     changeText(val) {
       document.getElementById("Text").value += `${val}`;
+      document.getElementById("TextNEM").value += `${val}`;
     },
     clearText() {
       let current_value = document.getElementById("Text").value;
       current_value = current_value.slice(0, current_value.length - 1);
       document.getElementById("Text").value = current_value;
+
+      let current_value01 = document.getElementById("TextNEM").value;
+      current_value01 = current_value.slice(0, current_value01.length - 1);
+      document.getElementById("TextNEM").value = current_value01;
     },
     copyToClipboard() {
       var copyText = document.getElementById("Text");
@@ -208,6 +212,7 @@ export default {
   },
   mounted() {
     document.getElementById("Text").disabled = true;
+    document.getElementById("TextNEM").disabled = true;
   }
 };
 </script>
@@ -217,4 +222,15 @@ export default {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+@font-face {
+    font-family: 'Nemesis Glyph';
+    src: url('../assets/NemesisGlyph.woff2') format('woff2'),
+        url('../assets/NemesisGlyph.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#TextNEM{
+  font-family:Nemesis Glyph;
+}
+
 </style>
